@@ -34,7 +34,7 @@ def build_img(source, outfilename):
 
     for p in pieces:
         while int(p) != pieces_count:
-            outfile.write("\0"*1048576)
+            outfile.seek(1048576,1)
             pieces_count += 1
         sys.stdout.write("\rWriting piece "+str(pieces_count)+"/"+str(pieces_total))
         piece = open(source+"/"+p, "rb")

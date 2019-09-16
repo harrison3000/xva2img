@@ -29,7 +29,7 @@ def build_img(source, files, outfilename):
 
     for f in files:
         while int(f[namepathpos:]) != files_count:
-            outfile.write("\0"*1048576)
+            outfile.seek(1048576,1)
             files_count += 1
         sys.stdout.write("\rWriting piece "+str(files_count)+"/"+str(files_total))
         piece = source.extractfile(f)
